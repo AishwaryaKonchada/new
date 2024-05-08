@@ -45,13 +45,13 @@ jobs:
       - name: Create ECS Cluster
         run: |
           aws ecs create-cluster --cluster-name nginx-cluster
-     # Step to register task definition
+      # Step to register task definition
       - name: Register Task Definition
         run: |
           aws ecs register-task-definition \
             --family nginx-task \
             --container-definitions '[{"name":"new-repo","image":"831903323151.dkr.ecr.ap-south-1.amazonaws.com/new-repo","portMappings":[{"containerPort":80}],"memoryReservation":128}]'
-     # Step to create ECS service
+      # Step to create ECS service
       - name: Create ECS Service
         run: |
           aws ecs create-service \
